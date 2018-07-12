@@ -5,13 +5,14 @@ module.exports = {
   docs: [
     {
       // 一个文档分类
-      title: '你好',
+      title: '核心',
       // level 文件名前缀
-      level: 'hello',
+      level: 'core',
       list: [
         // 0: 文件名
         // 1: 显示的标题
-        ['you', '这是 hello 下的一篇文档'],
+        ['module', '模块加载'],
+        ['buffer', '缓冲区与二进制数据'],
       ]
     },
     {
