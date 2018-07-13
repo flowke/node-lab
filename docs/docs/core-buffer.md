@@ -16,6 +16,7 @@ let buf64 = new Buffer('dfkl8sd9f', 'base64');
 
 // 如果没有内容初始化, 可以知道长度以备将来容纳数据
 // 这里会有 2048个字节的长度
+// 其包含的数据是 0
 let bf = new Buffer(2048);
 
 ```
@@ -50,7 +51,9 @@ bf2.length;
 > - 小时部分会向下取整: 1.5 => 1
 > - 超出编辑赋值不会有效.
 
-## 1.3 切分缓冲区
+## 1.3 其它操作
+
+#### 切分缓冲区
 
 ```js
 let b1 = new Buffer('abcdefghijklmn');
@@ -70,4 +73,16 @@ console.log(b1.toString()); // ab7d9fghijklmn
 
 这并没有分配新内存, 而是对内存的引用. 这意味着修改各自的部分可能会对对方造成影响.
 
-> 注: 
+> 注: 关于Buffer, 对象会分配到内存, 有一个固定的内存地址. 而不是 JavaScript VM中, 不会被GC回收.
+
+#### 复制缓冲区
+
+```js
+let bf1 = new Buffer('here a hook');
+
+let bf2 = new Buffer(12);
+
+//target targetStart, sourceStart, sourceEnd
+bf1.copy(bf2, 0, 1, 8)
+
+```
