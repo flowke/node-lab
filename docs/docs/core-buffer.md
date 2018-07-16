@@ -86,3 +86,13 @@ let bf2 = new Buffer(12);
 bf1.copy(bf2, 0, 1, 8)
 
 ```
+
+#### 编码解码
+
+```js
+// 转换成 utf8 的字符串
+new Buffer('abc').toString();
+
+// 转换成 base64 的字符串
+new Buffer('abc').toString('base64');
+```
